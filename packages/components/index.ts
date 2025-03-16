@@ -1,1 +1,1 @@
-export * from './action-sheets'
+export * from './action-sheet'

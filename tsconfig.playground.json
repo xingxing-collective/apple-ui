@@ -14,8 +14,8 @@
   "include": [
     "packages",
     // playground
-    "playground/main.ts",
-    "playground/**/*.vue"
+    "playground/*.ts",
+    "playground/*.vue"
   ],
   "exclude": [
     "node_modules",

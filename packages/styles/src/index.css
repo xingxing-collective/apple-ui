@@ -1,1 +1,11 @@
-@import "tailwindcss";
+:root {
+    --color-red: 255, 59, 48, 1;
+    --color-orange: 255, 149, 0, 1;
+    --color-blue: 0, 122, 255, 1;
+}
+
+.dark {
+    --color-red: 255, 69, 58, 1;
+    --color-orange: 255, 159, 10, 1;
+    --color-blue: 10, 132, 255, 1;
+}
