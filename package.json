@@ -6,7 +6,7 @@
     "dev": "pnpm -C playground dev",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
-    "test": "vitest", 
+    "test": "vitest",
     "stub": "pnpm run -r --parallel stub",
     "prepare": "husky",
     "postinstall": "pnpm stub"
@@ -14,14 +14,17 @@
   "dependencies": {
     "@apple-ui/components": "workspace:*",
     "@apple-ui/utils": "workspace:*",
+    "@apple-ui/styles": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.14",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.22.0",
     "eslint-config-unjs": "^0.4.2",
     "husky": "^9.1.7",
+    "tailwindcss": "^4.0.14",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
     "vitest": "^3.0.8",
