@@ -10,7 +10,3 @@ export interface ButtonProps {
      */
     as?: keyof HTMLElementTagNameMap
 }
-
-export type ButtonEmits = {
-    click: [evt: MouseEvent]
-}

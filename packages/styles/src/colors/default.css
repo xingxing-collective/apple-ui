@@ -81,3 +81,7 @@
   --ui-separator-opaque: 56, 56, 58, 1;
   --ui-separator-non-opaque: 84, 84, 86, 0.6;
 }
+
+body{
+  @apply bg-[rgba(var(--ui-color-white))]
+}
