@@ -1,3 +1,5 @@
-import { AppleUiPlugin } from './unplugin'
+import { AppleUIPlugin } from './unplugin'
 
-export const AppleUiVite = AppleUiPlugin.vite
+export const AppleUI = AppleUIPlugin.vite
+
+export default AppleUIPlugin.vite

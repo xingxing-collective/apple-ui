@@ -3,5 +3,6 @@
   "private": true,
   "license": "MIT",
   "main": "index.ts",
-  "module": "index.ts"
+  "module": "index.ts",
+  "types": "index.d.ts"
 }

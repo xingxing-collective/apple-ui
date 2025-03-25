@@ -75,7 +75,14 @@ importers:
 
   packages/components: {}
 
-  packages/plugins: {}
+  packages/plugins:
+    devDependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.0.14
+        version: 4.0.14(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2))
+      tailwindcss:
+        specifier: ^4.0.14
+        version: 4.0.14
 
   packages/styles: {}
 

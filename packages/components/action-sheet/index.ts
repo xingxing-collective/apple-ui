@@ -6,4 +6,4 @@ export const AiActionSheet: SFCWithInstall<typeof ActionSheet> =
 
 export * from "./src/action-sheet"
 
-export { default } from "./src/action-sheet.vue"
+export default AiActionSheet

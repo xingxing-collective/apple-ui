@@ -1,8 +1,4 @@
-export enum ButtonType {
-    Default,
-    Disabled,
-    Destructive
-}
+export type ButtonType ='default' | 'disabled' | 'destructive'
 
 export interface ButtonProps {
     /**
@@ -12,7 +8,7 @@ export interface ButtonProps {
     /**
      * @defaultValue ```button```
      */
-    tag?: keyof HTMLElementTagNameMap
+    as?: keyof HTMLElementTagNameMap
 }
 
 export type ButtonEmits = {

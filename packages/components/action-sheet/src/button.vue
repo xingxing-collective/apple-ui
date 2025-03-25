@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ButtonEmits, ButtonProps, ButtonType } from './button'
+import { ButtonEmits, ButtonProps } from './button';
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-    type: ButtonType.Default,
-    tag: 'button'
+    type: 'default',
+    as: 'button'
 })
 
 const emits = defineEmits<ButtonEmits>()
@@ -18,13 +18,13 @@ const handleClick = (evt: MouseEvent) => {
 const ui = computed(() => ({
     wrapper: 'flex items-center justify-center',
     container: 'w-full border-[#808080] border-b-[0.33px]  h-[56px]',
-    text: ["text-[17px] leading-[54px] ", props.type == ButtonType.Destructive ? "text-[#FF3B30]" : props.type == ButtonType.Disabled ? "text-[#AEAEB2]" : "text-[#007AFF]"],
+    text: ["text-[17px] leading-[54px] ", props.type == 'destructive' ? "text-[#FF3B30]" : props.type == 'disabled' ? "text-[#AEAEB2]" : "text-[#007AFF]"],
 }));
 
 </script>
 
 <template>
-    <component :class="ui.wrapper" :is="props.tag" @click="handleClick">
+    <component :class="ui.wrapper" :is="props.as" @click="handleClick">
         <div :class="ui.container">
             <span :class="ui.text">
                 <slot />

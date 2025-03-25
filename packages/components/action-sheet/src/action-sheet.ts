@@ -1,3 +1,9 @@
+import { ButtonProps } from "./button";
+
 export interface ActionSheetProps {
-    buttons: Array<any>
+    actions: Array<{
+        text: string;
+        as: ButtonProps['as'];
+        type: ButtonProps['type'];
+    }>
 }
