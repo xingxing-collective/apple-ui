@@ -18,7 +18,7 @@ const handleClick = (evt: MouseEvent) => {
 const ui = computed(() => ({
     wrapper: 'flex items-center justify-center',
     container: 'w-full border-[#808080] border-b-[0.33px]  h-[56px]',
-    text: ["text-[17px] leading-[54px] ", props.type == 'destructive' ? "text-[#FF3B30]" : props.type == 'disabled' ? "text-[#AEAEB2]" : "text-[#007AFF]"],
+    text: ["text-[17px] leading-[54px] ", props.type == 'destructive' ? "text-[rgba(var(--ui-color-red))]" : props.type == 'disabled' ? "text-[rgba(var(--ui-color-gray-200))]" : "text-[rgba(var(--ui-color-blue))]"],
 }));
 
 </script>
