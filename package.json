@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@apple-ui/components": "workspace:*",
-    "@apple-ui/styles": "workspace:*",
-    "@apple-ui/utils": "workspace:*",
     "@apple-ui/plugins": "workspace:*",
+    "@apple-ui/styles": "workspace:*",
+    "@apple-ui/theme": "workspace:*",
+    "@apple-ui/utils": "workspace:*",
+    "tailwind-variants": "^1.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {

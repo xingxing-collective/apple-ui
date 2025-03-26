@@ -1,61 +1,62 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import AiButton from './button.vue'
 import AiHeader from './header.vue'
-import { ActionSheetProps } from './action-sheet';
-
-const ui = computed(() => ({
-    wrapper: 'inset-0 z-50 fixed flex items-end p-3 bg-[rgba(0,0,0,0.2)]',
-    container: 'w-full flex flex-col pb-[34px]',
-    header: {
-        base: 'bg-[rgba(var(--ui-color-white))] rounded-t-[14px]'
-    },
-    content: {
-        base: 'flex w-full flex-col bg-[rgba(var(--ui-color-white))] rounded-b-[14px]'
-    },
-    footer: {
-        wrapper: 'pt-2',
-        container: 'h-[56px] flex items-center justify-center bg-[rgba(var(--ui-color-white))] rounded-[14px]',
-        text: 'text-[rgba(var(--ui-color-blue))]'
-    }
-}))
+import { ActionSheetProps, ActionSheetSlots, actionSheet } from './action-sheet'
+import { computed } from 'vue'
 
 const props = withDefaults(defineProps<ActionSheetProps>(), {
     as: 'div',
+    overlay: true,
+    transition: true,
     cancelText: 'Cancel'
-});
+})
 
- const visible = defineModel({ type: Boolean, default: false });
+const slots = defineSlots<ActionSheetSlots>()
+
+const ui = computed(() => actionSheet({
+    transition: props.transition
+}))
+
+const visible = defineModel({ type: Boolean, default: false })
 
 const handleCancel = () => {
-    props.beforeClose?.();
-    visible.value = false;
+    props.beforeClose?.()
+    visible.value = false
 }
 </script>
 
 <template>
-    <Transition>
-        <component v-if="visible" :is="as" :class="ui.wrapper">
-            <div :class="ui.container">
-                <div :class="ui.header.base">
-                    <AiHeader :title="props.title" :description="props.description" />
+    <component v-if="visible" :data-state="visible ? 'open' : 'closed'" :is="as"
+        :class="ui.overlay({ class: props.ui?.overlay })">
+        <div :class="ui.wrapper({ class: props.ui?.wrapper })">
+            <div :class="ui.container({ class: props.ui?.container })">
+                <div :class="ui.header({ class: props.ui?.header })">
+                    <slot name="header">
+                        <AiHeader :title="props.title" :description="props.description">
+                            <template #title>
+                                <slot name="title"></slot>
+                            </template>
+                            <template #description>
+                                <slot name="description"></slot>
+                            </template>
+                        </AiHeader>
+                    </slot>
                 </div>
-                <div :class="ui.content.base">
-                    <template v-for="action in props.actions">
-                        <AiButton :as="action.as" :type="action.type" @click="action.click">{{ action.text }}
+                <div :class="ui.content({ class: props.ui?.content })">
+                    <template v-for="(action,index) in props.actions" :key="index">
+                        <AiButton :as="action.as" :text="action.text" :type="action.type" @click="action.click">
+                            <template v-if="action.text" #default>
+                                <slot></slot>
+                            </template>
                         </AiButton>
                     </template>
                 </div>
-                <div :class="ui.footer.wrapper">
-                    <slot name="cancel">
-                        <div :class="ui.footer.container">
-                            <button :class="ui.footer.text" @click="handleCancel">
-                                {{ props.cancelText }}
-                            </button>
-                        </div>
-                    </slot>
-                </div>
+                <slot name="cancel">
+                    <button :class="ui.footer({ class: props.ui?.footer })" @click="handleCancel">
+                        <span>{{ props.cancelText }}</span>
+                    </button>
+                </slot>
             </div>
-        </component>
-    </Transition>
+        </div>
+    </component>
 </template>
