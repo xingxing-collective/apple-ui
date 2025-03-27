@@ -30,20 +30,19 @@ const handleCancel = () => {
         :class="ui.overlay({ class: props.ui?.overlay })">
         <div :class="ui.wrapper({ class: props.ui?.wrapper })">
             <div :class="ui.container({ class: props.ui?.container })">
-                <div :class="ui.header({ class: props.ui?.header })">
-                    <slot name="header">
-                        <AiHeader :title="props.title" :description="props.description">
-                            <template #title>
-                                <slot name="title"></slot>
-                            </template>
-                            <template #description>
-                                <slot name="description"></slot>
-                            </template>
-                        </AiHeader>
-                    </slot>
-                </div>
+                <slot name="header">
+                    <AiHeader :ui="{ wrapper: ui.header({ class: props.ui?.header }) }" :title="props.title"
+                        :description="props.description">
+                        <template #title>
+                            <slot name="title"></slot>
+                        </template>
+                        <template #description>
+                            <slot name="description"></slot>
+                        </template>
+                    </AiHeader>
+                </slot>
                 <div :class="ui.content({ class: props.ui?.content })">
-                    <template v-for="(action,index) in props.actions" :key="index">
+                    <template v-for="(action, index) in props.actions" :key="index">
                         <AiButton :as="action.as" :text="action.text" :type="action.type" @click="action.click">
                             <template v-if="action.text" #default>
                                 <slot></slot>
