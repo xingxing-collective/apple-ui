@@ -17,16 +17,16 @@ const ui = computed(() => actionSheet({
     transition: props.transition
 }))
 
-const visible = defineModel({ type: Boolean, default: false })
+const open = defineModel({ type: Boolean, default: false })
 
 const handleCancel = () => {
     props.beforeClose?.()
-    visible.value = false
+    open.value = false
 }
 </script>
 
 <template>
-    <component v-if="visible" :data-state="visible ? 'open' : 'closed'" :is="as"
+    <component v-if="open" :data-state="open ? 'open' : 'closed'" :is="as"
         :class="ui.overlay({ class: props.ui?.overlay })">
         <div :class="ui.wrapper({ class: props.ui?.wrapper })">
             <div :class="ui.container({ class: props.ui?.container })">
