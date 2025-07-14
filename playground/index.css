@@ -1,1 +1,2 @@
-@import "tailwindcss" theme(static) source("../..");
+@import "tailwindcss";
+@import '../packages/components/index.css';
