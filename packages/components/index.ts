@@ -1,2 +1,2 @@
-export * from './action-sheet'
-export * from './alert'
+export * from './ActionSheet'
+export * from './Alert'

@@ -1,7 +1,7 @@
 import vue from "@vitejs/plugin-vue"
 import { defineConfig } from "vite"
-import { AppleUI } from '../packages/plugins/index'
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [vue(), AppleUI()]
+  plugins: [vue(), tailwindcss()]
 })
