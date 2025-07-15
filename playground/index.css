@@ -1,2 +1,2 @@
 @import "tailwindcss";
-@import '../packages/components/index.css';
+@import '../dist/index.css'

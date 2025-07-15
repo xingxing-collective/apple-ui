@@ -25,19 +25,19 @@ export interface ButtonSlots {
 const theme = {
   slots: {
     wrapper: 'flex items-center justify-center',
-    container: 'w-full border-[rgba(128,128,128,0.55)] border-b-[0.33px]  h-[56px]',
-    text: 'text-[17px] leading-[54px]'
+    container: 'w-full border-trolleygray/55 border-b-[length:var(--border-width)] border-solid h-14',
+    text: 'text-[17px] leading-13.5'
   },
   variants: {
     color: {
       destructive: {
-        text: 'text-[rgba(var(--ui-color-red))]'
+        text: 'text-red'
       },
       disabled: {
-        text: 'text-[rgba(128,128,128,0.55)]'
+        text: 'text-trolleygray/55'
       },
       default: {
-        text: 'text-[rgba(var(--ui-color-blue))]'
+        text: 'text-blue'
       }
     }
   }

@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "baseUrl": ".",
-    "sourceMap": false,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "allowJs": false,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
     "strict": true,
     "noUnusedLocals": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "removeComments": false,
-    "rootDir": ".",
-    "types": [],
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
     "paths": {
-      "@apple-ui/*": ["packages/*"],
-      "apple-ui": ["packages/apple-ui"]
-    },
-    "preserveSymlinks": true
-  }
+      "@/*": ["packages/*"]
+    }
+  },
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.tsx", "packages/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

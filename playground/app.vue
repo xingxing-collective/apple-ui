@@ -14,7 +14,7 @@ const showActionSheet = ref(false)
 
 <template>
   <div>
-    <button class=" border" @click="showActionSheet = !showActionSheet">Toggle</button>
+    <button class="border" @click="showActionSheet = !showActionSheet">Toggle</button>
     <ActionSheet v-model="showActionSheet" :actions="actions" :title="title" :description="description" />
   </div>
 </template>

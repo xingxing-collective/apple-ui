@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AiButton from './ActionSheetButton.vue'
-import AiHeader from './ActionSheetHeader.vue'
+import Button from './ActionSheetButton.vue'
+import Header from './ActionSheetHeader.vue'
 import { computed } from 'vue'
 import { tv } from "tailwind-variants"
 import type { ButtonProps, ButtonSlots } from "./ActionSheetButton.vue"
@@ -39,12 +39,12 @@ export interface ActionSheetSlots extends HeaderSlots, ButtonSlots {
 
 const theme = {
     slots: {
-        overlay: 'fixed inset-0 bg-[rgba(0,0,0,0.2)]',
+        overlay: 'fixed inset-0 bg-black/20',
         wrapper: 'fixed inset-0 flex items-end overflow-auto',
-        container: 'w-full flex flex-col pb-[34px] p-3 break-words',
-        header: 'rounded-t-[14px]',
-        content: 'rounded-b-[14px] flex w-full flex-col bg-[rgba(var(--ui-color-white))]',
-        footer: 'mt-2 h-[56px] w-full flex items-center justify-center bg-[rgba(var(--ui-color-white))] rounded-[14px] text-[rgba(var(--ui-color-blue))]'
+        container: 'w-full flex flex-col p-3 break-words',
+        header: 'rounded-t-[var(--radius)]',
+        content: 'rounded-b-[var(--radius)] flex w-full flex-col bg-white',
+        footer: 'mt-2 h-14 w-full flex items-center justify-center bg-white rounded-[var(--radius)] text-blue'
     },
     variants: {
         transition: {
@@ -79,7 +79,7 @@ const handleCancel = () => {
         <div :class="ui.wrapper({ class: props.ui?.wrapper })">
             <div :class="ui.container({ class: props.ui?.container })">
                 <slot name="header">
-                    <AiHeader :ui="{ wrapper: ui.header({ class: props.ui?.header }) }" :title="props.title"
+                    <Header :ui="{ wrapper: ui.header({ class: props.ui?.header }) }" :title="props.title"
                         :description="props.description">
                         <template #title>
                             <slot name="title"></slot>
@@ -87,15 +87,15 @@ const handleCancel = () => {
                         <template #description>
                             <slot name="description"></slot>
                         </template>
-                    </AiHeader>
+                    </Header>
                 </slot>
                 <div :class="ui.content({ class: props.ui?.content })">
-                    <template v-for="(action, index) in props.actions" :key="index">
-                        <AiButton :as="action.as" :text="action.text" :type="action.type" @click="action.click">
+                    <template v-for="(action, _index) in props.actions" :key="_index">
+                        <Button :as="action.as" :text="action.text" :type="action.type" @click="action.click">
                             <template v-if="action.text" #default>
                                 <slot></slot>
                             </template>
-                        </AiButton>
+                        </Button>
                     </template>
                 </div>
                 <slot name="cancel">

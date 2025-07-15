@@ -1,96 +1,172 @@
-@import './keyframes.css';
-@import './fonts.css';
+@import "tailwindcss";
 
 @variant light (&:where(.light, .light *));
 @variant dark (&:where(.dark, .dark *));
 
+:root {
+  --red: oklch(0.6542 0.2321 28.66);
+  --orange: oklch(0.7652 0.1752 62.57);
+  --yellow: oklch(0.8652 0.1768 90.38);
+  --green: oklch(0.7556 0.2082 146.98);
+  --mint: oklch(0.7481 0.1296 189.03);
+  --teal: oklch(0.6998 0.1109 212.72);
+  --cyan: oklch(0.7068 0.1327 233.88);
+  --blue: oklch(0.6028 0.2177 257.42);
+  --indigo: oklch(0.5295 0.191 278.34);
+  --purple: oklch(0.6149 0.2129 312.41);
+  --pink: oklch(0.6497 0.2383 17.9);
+  --brown: oklch(0.6322 0.0643 72.82);
+  --navy: oklch(0.3588 0.012 285.78);
+  --gray: oklch(0.6483 0.0073 286.19);
+  --gray-200: oklch(0.5007 0.0047 286.23);
+  --gray-300: oklch(0.4024 0.0033 286.25);
+  --gray-400: oklch(0.8622 0.0068 286.26);
+  --gray-500: oklch(0.9233 0.0067 286.27);
+  --gray-600: oklch(0.9626 0.0066 286.27);
+  --opaque: oklch(0.8271 0.0028 286.34);
+  --non-opaque: oklch(0.4466 0.0032 286.27);
+}
+
+.dark {
+  --red: oklch(0.6633 0.2236 28.29);
+  --orange: oklch(0.7824 0.171055 67.2231);
+  --yellow: oklch(0.8849 0.1805 94.78);
+  --green: oklch(0.7303 0.1944 147.44);
+  --mint: oklch(0.8514 0.1149 192.44);
+  --teal: oklch(0.7777 0.1186 209.69);
+  --cyan: oklch(0.8166 0.1185 227.75);
+  --blue: oklch(0.6243 0.205577 255.4861);
+  --indigo: oklch(0.5564 0.2032 278.15);
+  --purple: oklch(0.656 0.2274 312.42);
+  --pink: oklch(0.6577 0.2317 16.02);
+  --brown: oklch(0.665 0.0637 72.95);
+  --navy: oklch(0.943 0.0134 286.14);
+  --slategray: oklch(0.5753 0.0121 286.01);
+  --gray: oklch(0.6483 0.0073 286.19);
+  --gray-200: oklch(0.752 0.0057 286.26);
+  --gray-300: oklch(0.8312 0.0069 286.25);
+  --gray-400: oklch(0.3492 0.0034 286.22);
+  --gray-500: oklch(0.2939 0.0036 286.18);
+  --gray-600: oklch(0.2273 0.0038 286.09);
+  --opaque: oklch(0.3414 0.0034 286.22);
+  --non-opaque: oklch(0.4466 0.0032 286.27);
+
+}
+
+@theme inline {
+  --font-apple: "SF Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-black: oklch(0 0 0);
+  --color-white: oklch(1 0 0);
+  --color-trolleygray: oklch(0.5999 0 0);
+  --color-slategray: oklch(0.5753 0.0121 286.01);
+
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --color-yellow: var(--yellow);
+  --color-green: var(--green);
+  --color-mint: var(--mint);
+  --color-teal: var(--teal);
+  --color-cyan: var(--cyan);
+  --color-blue: var(--blue);
+  --color-indigo: var(--indigo);
+  --color-purple: var(--purple);
+  --color-pink: var(--pink);
+  --color-brown: var(--brown);
+  --color-navy: var(--navy);
+  --color-gray: var(--gray);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-600: var(--gray-600);
+  --color-opaque: var(--opaque);
+  --color-non-opaque: var(--non-opaque);
+
+  --radius: 0.875rem;
+  --border-width: 0.33px;
+
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-600);
+  --bg-tertiary: var(--color-white);
+  --grouped-bg-primary: var(--color-gray-600);
+  --grouped-bg-secondary: var(--color-white);
+  --grouped-bg-tertiary: var(--color-gray-600);
+  --label-primary: var(--color-black);
+  --label-secondary: calc(var(--color-navy)/0.6);
+  --label-tertiary: calc(var(--color-navy)/0.3);
+  --label-quaternary: calc(var(--color-navy)/0.18);
+  --fill-primary: calc(var(--color-slategray)/0.2);
+  --fill-secondary: calc(var(--color-slategray)/0.16);
+  --fill-tertiary: calc(var(--color-slategray)/0.12);
+  --fill-quaternary: calc(var(--color-slategray)/0.08);
+  --separator-opaque: var(--color-opaque);
+  --separator-non-opaque: var(--color-non-opaque);
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-in;
+  --animate-scale-in: scale-in 0.2s ease-out;
+  --animate-scale-out: scale-out 0.2s ease-in;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes scale-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+}
 
 @layer base {
-  :root {
-    --ui-color-red: 255, 59, 48, 1;
-    --ui-color-orange: 255, 149, 0, 1;
-    --ui-color-yellow: 255, 204, 0, 1;
-    --ui-color-green: 48, 209, 88, 1;
-    --ui-color-mint: 0, 199, 190, 1;
-    --ui-color-teal: 48, 176, 199, 1;
-    --ui-color-cyan: 50, 173, 230, 1;
-    --ui-color-blue: 0, 122, 255, 1;
-    --ui-color-indigo: 88, 86, 214, 1;
-    --ui-color-purple: 175, 82, 222, 1;
-    --ui-color-pink: 255, 45, 85, 1;
-    --ui-color-brown: 162, 132, 94, 1;
-    --ui-color-black: 0, 0, 0, 1;
-    --ui-color-gray: 142, 142, 147, 1;
-    --ui-color-gray-200: 99, 99, 102, 1;
-    --ui-color-gray-300: 72, 72, 74, 1;
-    --ui-color-gray-400: 209, 209, 214, 1;
-    --ui-color-gray-500: 229, 229, 234, 1;
-    --ui-color-gray-600: 242, 242, 247, 1;
-    --ui-color-white: 255, 255, 255, 1;
-    --ui-bg-primary: var(--ui-color-white);
-    --ui-bg-secondary: var(--ui-color-gray-600);
-    --ui-bg-tertiary: var(--ui-color-white);
-    --ui-grouped-bg-primary: var(--ui-color-gray-600);
-    --ui-grouped-bg-secondary: var(--ui-color-white);
-    --ui-grouped-bg-tertiary: var(--ui-color-gray-600);
-    --ui-label-primary: var(--ui-color-black);
-    --ui-label-secondary: 60, 60, 67, 0.6;
-    --ui-label-tertiary: 60, 60, 67, 0.3;
-    --ui-label-quaternary: 60, 60, 67, 0.18;
-    --ui-fill-primary: 120, 120, 128, 0.2;
-    --ui-fill-secondary: 120, 120, 128, 0.16;
-    --ui-fill-tertiary: 120, 120, 128, 0.12;
-    --ui-fill-quaternary: 120, 120, 128, 0.08;
-    --ui-separator-opaque: 198, 198, 200, 1;
-    --ui-separator-non-opaque: 84, 84, 86, 0.34;
-  }
-
-  .dark {
-    --ui-color-red: 255, 69, 58, 1;
-    --ui-color-orange: 255, 159, 10, 1;
-    --ui-color-yellow: 255, 214, 10, 1;
-    --ui-color-green: 52, 199, 89, 1;
-    --ui-color-mint: 99, 230, 226, 1;
-    --ui-color-teal: 64, 203, 224, 1;
-    --ui-color-cyan: 100, 210, 255, 1;
-    --ui-color-blue: 10, 132, 255, 1;
-    --ui-color-indigo: 94, 92, 230, 1;
-    --ui-color-purple: 191, 90, 242, 1;
-    --ui-color-pink: 255, 55, 95, 1;
-    --ui-color-brown: 172, 142, 104, 1;
-    --ui-color-black: 0, 0, 0, 1;
-    --ui-color-gray: 142, 142, 147, 1;
-    --ui-color-gray-200: 174, 174, 178, 1;
-    --ui-color-gray-300: 199, 199, 204, 1;
-    --ui-color-gray-400: 58, 58, 60, 1;
-    --ui-color-gray-500: 44, 44, 46, 1;
-    --ui-color-gray-600: 28, 28, 30, 1;
-    --ui-color-white: 255, 255, 255, 1;
-    --ui-bg-primary: var(--ui-color-black);
-    --ui-bg-secondary: var(--ui-color-gray-600);
-    --ui-bg-tertiary: var(--ui-color-gray-500);
-    --ui-bg-elevated-primary: var(--ui-color-gray-600);
-    --ui-bg-elevated-secondary: var(--ui-color-gray-500);
-    --ui-bg-elevated-tertiary: var(--ui-color-gray-400);
-    --ui-grouped-bg-primary: var(--ui-color-black);
-    --ui-grouped-bg-secondary: var(--ui-color-gray-600);
-    --ui-grouped-bg-tertiary: var(--ui-color-gray-500);
-    --ui-grouped-bg-elevated-primary: var(--ui-color-gray-600);
-    --ui-grouped-bg-elevated-secondary: var(--ui-color-gray-500);
-    --ui-grouped-bg-elevated-tertiary: var(--ui-color-gray-400);
-    --ui-label-primary: var(--ui-color-white);
-    --ui-label-secondary: 235, 235, 245, 0.6;
-    --ui-label-tertiary: 235, 235, 245, 0.3;
-    --ui-label-quaternary: 235, 235, 245, 0.16;
-    --ui-fill-primary: 120, 120, 128, 0.36;
-    --ui-fill-secondary: 120, 120, 128, 0.32;
-    --ui-fill-tertiary: 120, 120, 128, 0.24;
-    --ui-fill-quaternary: 120, 120, 128, 0.18;
-    --ui-separator-opaque: 56, 56, 58, 1;
-    --ui-separator-non-opaque: 84, 84, 86, 0.6;
-  }
-
   body {
-    @apply bg-[rgba(var(--ui-color-white))] font-[var(--ui-font-family)] scheme-light dark:scheme-dark;
+    @apply bg-white font-apple scheme-light dark:scheme-dark;
   }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }

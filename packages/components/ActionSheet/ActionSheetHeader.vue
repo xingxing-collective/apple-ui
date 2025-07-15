@@ -17,9 +17,9 @@ export interface HeaderSlots {
 
 const theme = {
   slots: {
-    wrapper: 'bg-[rgba(var(--ui-color-white))] flex flex-col px-4 pt-3 pb-[14px] border-[rgba(128,128,128,0.55)] border-b-[0.33px] h-[66px] text-[13px] text-center text-[rgba(127,127,127,0.5)]',
-    title: 'font-[600]',
-    description: 'font-[400]'
+    wrapper: 'bg-white flex flex-col px-4 pt-3 border-trolleygray/55 border-b-[length:var(--border-width)] border-solid h-16.5 text-[13px] text-center ',
+    title: 'font-semibold text-trolleygray/55',
+    description: 'font-normal text-trolleygray/55'
   }
 }
 const header = tv(theme)
@@ -31,7 +31,7 @@ const ui = computed(() => header())
 
 </script>
 <template>
-  <div :class="ui.wrapper({ class: props.ui?.wrapper })">
+  <div :class="ui.wrapper({ class: props.ui?.wrapper })" class=" ">
     <slot name="title">
       <div :class="ui.title({ class: props.ui?.title })"><span>{{ props.title }}</span></div>
     </slot>
