@@ -31,12 +31,12 @@ const ui = computed(() => header())
 
 </script>
 <template>
-  <div :class="ui.wrapper({ class: props.ui?.wrapper })" class=" ">
+  <component :is="props.as" :class="ui.wrapper({ class: props.ui?.wrapper })">
     <slot name="title">
       <div :class="ui.title({ class: props.ui?.title })"><span>{{ props.title }}</span></div>
     </slot>
     <slot name="description">
       <div :class="ui.description({ class: props.ui?.description })"><span>{{ props.description }}</span></div>
     </slot>
-  </div>
+  </component>
 </template>

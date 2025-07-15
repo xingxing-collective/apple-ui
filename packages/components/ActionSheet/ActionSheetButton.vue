@@ -14,6 +14,11 @@ export interface ButtonProps {
    */
   as?: keyof HTMLElementTagNameMap
   text?: string
+  /**
+   * Whether this is the last button in the group
+   * @defaultValue false
+   */
+  isLast?: boolean
   ui?: Partial<typeof button.slots>
   class?: any
 }
@@ -25,7 +30,7 @@ export interface ButtonSlots {
 const theme = {
   slots: {
     wrapper: 'flex items-center justify-center',
-    container: 'w-full border-trolleygray/55 border-b-[length:var(--border-width)] border-solid h-14',
+    container: 'w-full h-14 text-center',
     text: 'text-[17px] leading-13.5'
   },
   variants: {
@@ -39,16 +44,26 @@ const theme = {
       default: {
         text: 'text-blue'
       }
+    },
+    border: {
+      true: {
+        container: 'border-trolleygray/55 border-b-[length:var(--border-width)] border-solid'
+      },
+      false: {
+        container: ''
+      }
     }
   }
 }
 const button = tv(theme)
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'default',
-  as: 'button'
+  as: 'button',
+  isLast: false
 })
 const ui = computed(() => button({
-  color: props.type
+  color: props.type,
+  border: !props.isLast
 }))
 </script>
 

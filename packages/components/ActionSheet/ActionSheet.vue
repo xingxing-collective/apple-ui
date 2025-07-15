@@ -90,8 +90,14 @@ const handleCancel = () => {
                     </Header>
                 </slot>
                 <div :class="ui.content({ class: props.ui?.content })">
-                    <template v-for="(action, _index) in props.actions" :key="_index">
-                        <Button :as="action.as" :text="action.text" :type="action.type" @click="action.click">
+                    <template v-for="(action, index) in props.actions" :key="index">
+                        <Button 
+                          :as="action.as" 
+                          :text="action.text" 
+                          :type="action.type" 
+                          :is-last="index === props.actions.length - 1"
+                          @click="action.click"
+                        >
                             <template v-if="action.text" #default>
                                 <slot></slot>
                             </template>
