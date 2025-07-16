@@ -48,9 +48,6 @@ const theme = {
     border: {
       true: {
         container: 'border-trolleygray/55 border-b-[length:var(--border-width)] border-solid'
-      },
-      false: {
-        container: ''
       }
     }
   }

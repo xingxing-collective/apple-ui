@@ -97,11 +97,7 @@ const handleCancel = () => {
                           :type="action.type" 
                           :is-last="index === props.actions.length - 1"
                           @click="action.click"
-                        >
-                            <template v-if="action.text" #default>
-                                <slot></slot>
-                            </template>
-                        </Button>
+                        />
                     </template>
                 </div>
                 <slot name="cancel">

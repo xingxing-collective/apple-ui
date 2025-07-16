@@ -14,11 +14,10 @@
       "import": "./dist/apple-ui.es.js",
       "require": "./dist/apple-ui.umd.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/index.css": "./dist/index.css"
   },
   "scripts": {
     "dev": "pnpm -C playground dev",
-    "build:watch": "pnpm build --watch",
     "build": "vite build",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --cache --fix .",
