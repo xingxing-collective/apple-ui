@@ -4,7 +4,7 @@ import Header from './ActionSheetHeader.vue'
 import { computed } from 'vue'
 import { tv } from "tailwind-variants"
 import type { ButtonProps, ButtonSlots } from "./ActionSheetButton.vue"
-import { HeaderSlots } from "./ActionSheetHeader.vue"
+import type { HeaderSlots } from "./ActionSheetHeader.vue"
 
 export interface ActionSheetProps {
     as?: keyof HTMLElementTagNameMap

@@ -9,12 +9,17 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     dts({
-      include: ['packages/**/**/*.vue', 'packages/**/**/*.ts']
+      include: ['./src/**/**/*.vue', './src/**/**/*.ts']
     })
   ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
   build: {
     lib: {
-      entry: [resolve(__dirname, 'packages/components/index.ts')],
+      entry: [resolve(__dirname, './src/components/index.ts')],
       name: 'AppleUI',
       fileName: (format) => `apple-ui.${format}.js`
     },
