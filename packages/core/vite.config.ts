@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
-import dts from 'vite-plugin-dts'
+import dts from 'unplugin-dts/vite'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     dts({
-      include: ['./src/**/**/*.vue', './src/**/**/*.ts']
+      tsconfigPath: './tsconfig.app.json',
     })
   ],
   resolve: {
@@ -17,21 +17,20 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-  build: {
+  build:{
+    outDir: 'dist',
     lib: {
-      entry: [resolve(__dirname, './src/components/index.ts')],
-      name: 'AppleUI',
-      fileName: (format) => `apple-ui.${format}.js`
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
-          vue: 'Vue'
-        }
-      }
+          vue: 'Vue',
+        },
+      },
     },
-    sourcemap: true,
-    cssCodeSplit: true
   }
 })

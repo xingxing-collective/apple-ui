@@ -13,26 +13,20 @@ dist
 dist-ssr
 coverage
 *.local
-.env
 
 /cypress/videos/
 /cypress/screenshots/
 
 # Editor directories and files
+.vscode
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.json
 .idea
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-./.nuxt
-.neoconf.json
 
 test-results/
 playwright-report/
-vite.config.ts.timestamp*
-*/.vitepress/cache
-.eslintcache

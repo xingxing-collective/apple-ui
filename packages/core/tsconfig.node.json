@@ -5,6 +5,7 @@
     "types": ["node"]
   },
   "include": [
-    "vite.config.*"
+    "vite.config.*",
+    "scripts"
   ]
 }
