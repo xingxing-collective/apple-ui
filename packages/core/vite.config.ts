@@ -17,10 +17,10 @@ export default defineConfig({
       '@': resolve(__dirname, 'src'),
     },
   },
-  build:{
+  build: {
     outDir: 'dist',
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: [resolve(__dirname, 'src/index.ts'), resolve(__dirname, 'src/index.css')],
       formats: ['es', 'cjs'],
       fileName: (format) => `index.${format}.js`,
     },
@@ -32,5 +32,7 @@ export default defineConfig({
         },
       },
     },
+    sourcemap: true,
+    cssCodeSplit: true
   }
 })

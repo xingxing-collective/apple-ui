@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type ActionSheetProps, ActionSheet } from "../packages/core/src/components/ActionSheet";
+import { type ActionSheetProps, ActionSheet } from "../packages/core/src/ActionSheet";
 import { ref } from "vue";
 
 // 基本 ActionSheet
