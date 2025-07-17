@@ -49,8 +49,8 @@ const theme = {
     variants: {
         transition: {
             true: {
-                overlay: 'data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]',
-                container: 'data-[state=open]:animate-[scale-in_200ms_ease-out] data-[state=closed]:animate-[scale-out_200ms_ease-in]'
+                overlay: 'data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
+                container: 'data-[state=open]:animate-scale-in data-[state=closed]:animate-scale-out'
             }
         },
     },
@@ -91,13 +91,7 @@ const handleCancel = () => {
                 </slot>
                 <div :class="ui.content({ class: props.ui?.content })">
                     <template v-for="(action, index) in props.actions" :key="index">
-                        <Button 
-                          :as="action.as" 
-                          :text="action.text" 
-                          :type="action.type" 
-                          :is-last="index === props.actions.length - 1"
-                          @click="action.click"
-                        />
+                        <Button :as="action.as" :text="action.text" :type="action.type" @click="action.click" />
                     </template>
                 </div>
                 <slot name="cancel">
