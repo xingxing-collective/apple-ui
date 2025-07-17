@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@iconify/tailwind4";
 
 @variant light (&:where(.light, .light *));
 @variant dark (&:where(.dark, .dark *));
@@ -155,7 +156,7 @@
 
 @layer base {
   body {
-    @apply bg-white font-apple scheme-light dark:scheme-dark;
+    @apply bg-white dark:bg-black font-apple scheme-light dark:scheme-dark;
   }
 }
 

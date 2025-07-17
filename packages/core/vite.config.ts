@@ -3,11 +3,13 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import dts from 'unplugin-dts/vite'
 import tailwindcss from '@tailwindcss/vite'
+import icons from 'unplugin-icons/vite'
 
 export default defineConfig({
   plugins: [
     vue(),
     tailwindcss(),
+    icons(),
     dts({
       tsconfigPath: './tsconfig.app.json',
     })
